@@ -1,0 +1,28 @@
+{
+  "name": "node-authentication",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js",
+    "serve": "nodemon server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/andersonmcook/node-authentication.git"
+  },
+  "author": "Anderson Cook <andersonmcook@gmail.com> (https://github.com/andersonmcook)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/andersonmcook/node-authentication/issues"
+  },
+  "homepage": "https://github.com/andersonmcook/node-authentication#readme",
+  "dependencies": {
+    "express": "^4.13.4",
+    "jade": "^1.11.0"
+  },
+  "devDependencies": {
+    "nodemon": "^1.9.0"
+  }
+}
