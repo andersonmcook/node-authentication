@@ -33,8 +33,9 @@ app.use(session({
 //   next();
 // });
 
+// set email based on session or default
 app.use((req, res, next) => {
-  app.locals.user = req.session.user || {email: 'Guest'};
+  res.locals.user = req.session.user || {email: 'Guest'};
   next();
 });
 
