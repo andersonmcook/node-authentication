@@ -1,0 +1,9 @@
+form(method='POST' action='/login')
+  .input-group
+    label(for='email') Email
+    input#email(type='email' name='email' autofocus required)
+  .input-group
+    label(for='password') Password
+    input#password(type='password' name='password' required)
+  .input-group
+    input(type='submit', value='Log In')
