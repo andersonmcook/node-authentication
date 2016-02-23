@@ -7,6 +7,7 @@ const mongoose = require('mongoose');
 const app = express();
 const userRoutes = require('./lib/user/user.routes');
 const bodyParser = require('body-parser');
+const passport = require('passport');
 const methodOverride = require('method-override');
 const PORT = process.env.PORT || 3000;
 const SESSION_SECRET = process.env.SESSION_SECRET || 'secretsss';
@@ -25,6 +26,10 @@ app.use(session({
   store: new RedisStore()
 }));
 
+// below session. use passport. have to npm install each version i.e. local, google, facebook
+app.use(passport.initialize());
+app.use(passport.session());
+
 // // test middleware to count visits to each page per user
 // app.use((req, res, next) => {
 //   req.session.visits = req.session.visits || {};
@@ -34,9 +39,9 @@ app.use(session({
 //   next();
 // });
 
-// set email based on session or default
+// set email based on session with passport
 app.use((req, res, next) => {
-  res.locals.user = req.session.user || {email: 'Guest'};
+  res.locals.user = req.user;
   next();
 });
 
