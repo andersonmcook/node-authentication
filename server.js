@@ -7,6 +7,7 @@ const mongoose = require('mongoose');
 const app = express();
 const userRoutes = require('./lib/user/user.routes');
 const bodyParser = require('body-parser');
+const methodOverride = require('method-override');
 const PORT = process.env.PORT || 3000;
 const SESSION_SECRET = process.env.SESSION_SECRET || 'secretsss';
 
@@ -38,6 +39,9 @@ app.use((req, res, next) => {
   res.locals.user = req.session.user || {email: 'Guest'};
   next();
 });
+
+// method override, after body-parser
+app.use(methodOverride('_method'));
 
 // get home
 app.get('/', (req, res) => {
